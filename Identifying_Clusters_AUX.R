@@ -61,8 +61,8 @@ esti.fn = function(grp_info){
 pred.fn = function(beta_opt){
   
   ################ prediction of playoff based on emprical distribution #################
-  yhatpo = x0_po %*% b_opt
-  Fhatpo = colSums ( outer( y0 - x0 %*% b_opt , -( yhatpo ) , FUN = "<=")*1  ) /  M
+  yhatpo = x0_po %*% beta_opt
+  Fhatpo = colSums ( outer( y0 - x0 %*% beta_opt , -( yhatpo ) , FUN = "<=")*1  ) /  M
   na_seq = which(is.na(Fhatpo))
   Fhatpo[c(na_seq)] = Fhatpo[c(na_seq)-1]
   pred_po = ((0.5 - Fhatpo) > 0) * 1 + ((0.5 - Fhatpo) < 0) * (-1) +  ((0.5 - Fhatpo) == 0) * (1/2)
