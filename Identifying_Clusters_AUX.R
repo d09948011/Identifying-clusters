@@ -20,7 +20,7 @@ beta_esti.fn = function(grp_info){
   dim(clu_size) = c(num_grp,1) 
   
   xc = x0%*%grp_info 
-  xcn = xc[ ,1:(num_grp-1)]-xc[ ,num_grp]%*%t(w_clu) # constraint sum beta = 0
+  xcn = xc[ ,1:(num_grp-1)]-xc[ ,num_grp]%*%t(w_clu) # constraint sum  beta = 0
   
   bhatc = solve(t(xcn)%*%xcn)%*%t(xcn)%*%y0
   binf = c(bhatc,-sum(bhatc*w_clu))
